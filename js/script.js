@@ -6,13 +6,16 @@ let languageMW = document.querySelector('#language-mw');
 let notificationMW = document.querySelector('#notification-mw');
 let privacyMW = document.querySelector('#privacy-mw');
 
-// проблеми зі стрілочкою коли наводжу у відкритому стані!!!
 let arrow = document.querySelectorAll('.arrow');
 for (let j = 0; j < arrow.length; j++) {
 	arrow[j].addEventListener('mouseenter', () => {
+		if(innerMenu[j].classList.contains('inner-menu-click')) return;
+
 		arrow[j].classList.add('hover-arrow');
 	})
 	arrow[j].addEventListener('mouseleave', () => {
+		if(innerMenu[j].classList.contains('inner-menu-click')) return;
+
 		arrow[j].classList.remove('hover-arrow');
 	})
 }
@@ -54,6 +57,7 @@ for (let i = 0; i < innerMenuItem.length; i++) {
 		innerMenuItem[i].classList.add('inner-menu-li-hover')
 	});
 	innerMenuItem[i].addEventListener('mouseleave', () => {
+
 		innerMenuItem[i].classList.remove('inner-menu-li-hover')
 	});
 }
